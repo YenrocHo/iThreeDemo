@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>第一个three.js文件三维场景</title>
+    <script type="text/javascript" src="../../three.js/build/three.js"></script>
+
+    <!--鼠标控制-->
+    <script type="text/javascript" src="../../three.js/examples/js/controls/OrbitControls.js"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+    // 创建场景对象
+    var scene = new THREE.Scene();
+
+    // 圆
+    var sphere = new THREE.SphereGeometry(60, 40, 40);
+    var sphereMaterial = new THREE.MeshLambertMaterial({
+        color: 0x0000ff,
+        wireframe: true // 线条模式渲染
+    });
+    var mesh1 = new THREE.Mesh(sphere, sphereMaterial);
+    scene.add(mesh1);
+
+    // 正方形
+    var box = new THREE.BoxGeometry(100, 100, 100);
+    var boxMaterial = new THREE.MeshLambertMaterial({
+        color: 0x00ccff,
+        transparent: true, // 开启透明
+        opacity: 0.5// 设置透明度
+    });
+    var mesh2 = new THREE.Mesh(box, boxMaterial);
+    mesh2.translateX(150);//
+    scene.add(mesh2);
+
+    // 正八面体
+    var icosahedron = new THREE.IcosahedronGeometry(50);
+    var icosahedronMaterial = new THREE.MeshLambertMaterial({
+        color: 0xaa0099,
+        specular: 0x444444, // 与光照计算，高光效果
+        shininess: 100
+    });
+    var mesh4 = new THREE.Mesh(icosahedron, icosahedronMaterial);
+    mesh4.position.set(0,0, 110);
+    scene.add(mesh4);
+
+    // 正二十面体
+    var octahedron = new THREE.OctahedronGeometry(50);
+    var octahedronMaterial = new THREE.MeshLambertMaterial({color: 0xaa00ff});
+    var mesh3 = new THREE.Mesh(octahedron, octahedronMaterial);
+    mesh3.translateY(110);
+    scene.add(mesh3);
+
+    // 辅助坐标
+    var axisHelper = new THREE.AxesHelper(1000);
+    scene.add(axisHelper);
+
+    // 点光源
+    var point = new THREE.PointLight(0xffffff);
+    point.position.set(400,200,300);// 点光源位置
+    scene.add(point);
+    // 环境光
+    var ambient = new THREE.AmbientLight(0x666666);
+    scene.add(ambient);
+
+
+    // 相机设置
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    var k = width/height;
+    var s = 200;// 三维场景显示范围控制系数，系数越大，显示范围越大
+    var camera = new THREE.OrthographicCamera(-s*k, s*k, s, -s, 1, 1000);
+    camera.position.set(200, 300, 200);// 相机位置
+    camera.lookAt(scene.position);// 设置相机方向
+
+    // 创建渲染器
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize(width, height);// 设置渲染区域大小
+    renderer.setClearColor(0xb9d3ff, 1);// 设置背景色
+    document.body.appendChild(renderer.domElement);// body 元素中插入
+
+    function iRenderer(){
+        // 执行渲染
+        renderer.render(scene, camera);
+        mesh1.rotateY(0.01);// 每次绕Y轴旋转0.01弧度
+        mesh2.rotateY(0.01);// 每次绕Y轴旋转0.01弧度
+        mesh3.rotateY(0.01);// 每次绕Y轴旋转0.01弧度
+        mesh4.rotateY(0.01);// 每次绕Y轴旋转0.01弧度
+        requestAnimationFrame(iRenderer);
+    }
+
+    iRenderer();
+
+    // 创建控件对象， 相机对象camera 作为参数，控件可以监听鼠标的变化，改变相机的属性
+    // var controls = new THREE.OrbitControls(camera, renderer.domElement);
+    // // 使动画循环使用时阻尼或自转 意思是否有惯性
+    // controls.enableDamping = true;
+    // //是否可以缩放
+    // controls.enableZoom = true;
+    // //是否自动旋转
+    // controls.autoRotate = true;
+    // //设置相机距离原点的最远距离
+    // controls.minDistance = 200;
+    // //设置相机距离原点的最远距离
+    // controls.maxDistance = 600;
+    // //是否开启右键拖拽
+    // controls.enablePan = false;
+    // // 监听鼠标事件，出发渲染函数。
+    var controls = new THREE.OrbitControls(camera, renderer.domElement);
+    // controls.addEventListener('change', iRenderer);  // 因为有requestAnimationFrame 函数，就不需要监听
+
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+floatArray = new Float32Array[];// 创建顶点数组
+THREE.BufferAttribute(floatArray, 3); // 生成空间坐标
+
+geometry.attributes.position；// 几何体坐标
+
+THREE.PointsMaterial();// 点材质
+THREE.Points();//点模型
+
+THREE.LineBasicMaterial();// 线材质
+THREE.Line();//线模型
+
+THREE.MeshBasicMaterial();// 三角面(面/网格)材质
+THREE.Mesh();//三角面(面/网格)模型

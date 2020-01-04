@@ -1,0 +1,2 @@
+var geometry = new THREE.SphereGeometry(60, 40, 49);// 球型
+var geometry = new THREE.BoxGeometry(100, 100, 100);// 立体几何对象（正方体）

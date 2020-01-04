@@ -1,0 +1,11 @@
+THREE.SphereGeometry(60, 40, 49);// 球型
+THREE.BoxGeometry(10, 100, 100);// 立体几何对象
+THREE.OctahedronGeometry(50);// 正八面体
+THREE.DodecahedronGeometry(50);// 正十二面体
+THREE.IcosahedronGeometry(50);// 正二十面体
+
+mesh = THREE.Mesh();
+    mesh.translateX()// 相对原点X 轴位移
+    mesh.translateY()// 相对原点Y 轴位移
+    mesh.translateZ()// 相对原点Z 轴位移
+    mesh.position.set(0,0, 110);// 定位空间位置

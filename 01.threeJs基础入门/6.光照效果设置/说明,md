@@ -1,0 +1,2 @@
+THREE.PointLight();// 点光源
+THREE.AmbientLight();// 环境光

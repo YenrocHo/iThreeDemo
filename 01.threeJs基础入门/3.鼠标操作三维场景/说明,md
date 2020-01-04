@@ -1,0 +1,1 @@
+new THREE.OrbitControls(camera, renderer.domElement); // 鼠标操作

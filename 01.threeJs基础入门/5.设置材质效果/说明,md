@@ -1,0 +1,7 @@
+wireframe:true // 线条模式
+
+transparent: true// 透明
+    opacity:0-1// 透明度
+
+specular:0x444444// 与光照计算，高光效果
+    shininess:100// 光照扩散
