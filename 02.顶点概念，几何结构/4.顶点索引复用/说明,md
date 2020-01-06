@@ -1,0 +1,2 @@
+索引数据类型：new Uint16Array([])/ new Uint32Array([]);
+索引赋值给几何体：geometry.index =  new THREE.BufferAttribute(new Uint16Array([]),1);

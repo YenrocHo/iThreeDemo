@@ -1,0 +1,5 @@
+Geometry： 灵活
+BufferGeometry： 性能高
+
+geometry.vertices.push();
+geometry.colors.push();

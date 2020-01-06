@@ -1,0 +1,5 @@
+Face3不可以用point，line使用的geometry.colors颜色设置。
+需要face2.color = color3;
+  或者 face2.vertexColors = [
+           color1,color3,color4
+      ];

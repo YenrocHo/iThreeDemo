@@ -1,0 +1,6 @@
+MeshBasicMaterial是一种非常简单的材质，这种材质不考虑场景中光照的影响。使用这种材质的网格会被渲染成简单的平面多边形，而且也可以显示几何体的线框。
+MeshLambertMaterial这种材质可以用来创建暗淡的并不光亮的表面。
+                   无光泽表面的材质，无镜面高光。
+                   这可以很好地模拟一些表面（如未经处理的木材或石头），但不能用镜面高光（如上漆木材）模拟光泽表面。
+                   该材质非常易用，而且会对场景中的光源产生反应。
+                   可以配置的前面的提高的属性：color、opacity、shading、blending、depthTest、depthWrite、wireframe、wireframeLinewidth、wireframeLinecap、wireframeLineJoin、vertexColors和fog。
