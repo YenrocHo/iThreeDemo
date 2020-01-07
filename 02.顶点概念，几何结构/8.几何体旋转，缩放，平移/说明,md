@@ -1,0 +1,6 @@
+变换的本质：改变几何体的顶点位置数据
+
+变换类型：
+    缩放：.scale(x,y,z)
+    平移：.translate(x,y,z)
+    旋转: .rotateX() .rotateY() .rotateZ()

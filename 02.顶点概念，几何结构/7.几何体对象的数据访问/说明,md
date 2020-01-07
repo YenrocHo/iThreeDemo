@@ -1,0 +1,5 @@
+Geometry 几何体
+    BoxGeometry 立方体
+
+geometry.faces.pop();// 删除最后一个face
+geometry.faces.shift();// 删除第一个face
